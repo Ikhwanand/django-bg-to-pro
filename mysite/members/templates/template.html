@@ -1,0 +1,63 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Template</title>
+    <link rel="stylesheet" href="{% static 'myglobal.css' %}">
+</head>
+<body>
+    {% include 'mymenu.html' with me='TOBIAS' sponsor='W3SCHOOLS' %}
+
+    <ul>
+        {% for x in mymembers %}
+            <li>{{ x.firstname }}</li>
+        {% endfor %}
+    </ul>
+
+    {% with greeting=1 %}
+        {% if greeting %}
+            <h1>Hello</h1>
+        {% else %}
+            <h1>Bye</h1>
+        {% endif %}
+    {% endwith %}
+
+    <ul>
+        {% for x in fruits %}
+            <li style='color: {% cycle 'blue' 'pink' %}'>
+                {{ x }}
+            </li>
+        {% endfor %}
+    </ul>
+    
+    <ul>
+        {% for x in fruits %}
+            <li
+                {% if forloop.first %}
+                    style='background-color:lightblue;'
+                {% endif %}
+                
+                {% if forloop.last %}
+                    style='background-color:lightyellow;'
+                {% endif %}
+            >
+                {{ x }}
+            </li>
+        {% endfor %}
+    </ul>
+
+    <ul>
+        {% for x in fruits %}
+            <li>{{ forloop.revcounter1 }}</li>
+        {% endfor %}
+    </ul>
+
+    {% lorem 2 b random %}
+    <br>
+    <small>{% now "Y-m-d G:i:s" %}</small>
+
+    {% include 'footer.html' %}
+</body>
+</html>

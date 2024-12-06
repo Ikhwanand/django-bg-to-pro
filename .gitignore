@@ -1,0 +1,10 @@
+.venv
+__pycache__
+.idx
+.vscode
+devserver.sh
+
+mysite/mysite/__pycache__/
+mysite/members/__pycache__/
+mysite/members/migrations/
+mysite/db.sqlite3
